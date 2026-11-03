@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<!-- Replace your old line 9 href with this -->
+<link href="https://jsdelivr.net" rel="stylesheet">
+
+
+   <title>home</title>
+
+</head>
+<body>
+<!-- A horizontal navbar that becomes vertical on small screens -->
+<nav class="navbar navbar-expand-sm bg-light">
+
+  <div class="container-fluid">
+    <!-- Links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'index' %}">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'about' %}">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'services' %}">Services</a>
+      </li>
+    </ul>
+  </div>
+
+</nav>
+
+<div class="container">
+    <h1>{{ city }}</h1>
+    <p>Temp is {{ temperature }}&deg;</p>
+    <p>wind speed is {{ windspeed }}kph</p>
+
+    {% for name in users %}
+        <p>{{ name }}</p>
+    {% endfor %}
+</div>
+
+<!-- Replace your old line 37 src with this -->
+<script src="https://jsdelivr.net"></script>
+</body>
+</html>
