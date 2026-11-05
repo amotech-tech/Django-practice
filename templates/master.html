@@ -14,6 +14,7 @@
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
   />
+{%  block extra_links %}{% endblock %}
    <title>
        {% block title %}
        {% endblock %}
@@ -28,14 +29,20 @@
 
     <!-- Links -->
     <ul class="navbar-nav">
+        {% url 'home' as home_url %}
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'index' %}">Home</a>
+        <a class="nav-link {% if request.path == home_url %}active{% endif %}" href="{% url 'index' %}">Home</a>
       </li>
+     {% url 'home' as about_url %}
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'about' %}">About</a>
+        <a class="nav-link {% if request.path == about_url %}active{% endif %}" href="{% url 'about' %}">About</a>
+      </li> {% url 'home' as services_url %}
+      <li class="nav-item">
+        <a class="nav-link {% if request.path == services_url %}active{% endif %}" href="{% url 'services' %}">Services</a>
       </li>
+ {% url 'home' as students_url %}
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'services' %}">Services</a>
+        <a class="nav-link {% if request.path == students_url %}active{% endif %}" href="{% url 'students' %}">Students</a>
       </li>
     </ul>
   </div>
